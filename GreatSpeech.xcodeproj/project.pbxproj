@@ -10,7 +10,7 @@
 		50655C76587227F1E7A0F518 /* Pods_GreatSpeechUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1323C6E60CF558451F17F2D3 /* Pods_GreatSpeechUITests.framework */; };
 		908349FDE29F179256B3D733 /* Pods_GreatSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD194D021FFA149BF6FC4CD2 /* Pods_GreatSpeech.framework */; };
 		E31022E8201C63A30048DB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022E7201C63A30048DB61 /* AppDelegate.swift */; };
-		E31022EA201C63A30048DB61 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022E9201C63A30048DB61 /* FirstVC.swift */; };
+		E31022EA201C63A30048DB61 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022E9201C63A30048DB61 /* RecordVC.swift */; };
 		E31022EF201C63A30048DB61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31022EE201C63A30048DB61 /* Assets.xcassets */; };
 		E31022F2201C63A30048DB61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31022F0201C63A30048DB61 /* LaunchScreen.storyboard */; };
 		E31022FD201C63A30048DB61 /* GreatSpeechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022FC201C63A30048DB61 /* GreatSpeechTests.swift */; };
@@ -50,7 +50,7 @@
 		DD194D021FFA149BF6FC4CD2 /* Pods_GreatSpeech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreatSpeech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31022E4201C63A30048DB61 /* GreatSpeech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreatSpeech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31022E7201C63A30048DB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E31022E9201C63A30048DB61 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
+		E31022E9201C63A30048DB61 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		E31022EE201C63A30048DB61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E31022F1201C63A30048DB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E31022F3201C63A30048DB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +63,12 @@
 		E310231C201C903A0048DB61 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzingFillerVC.swift; sourceTree = "<group>"; };
 		E3102320201CCCEE0048DB61 /* TopicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicVC.swift; sourceTree = "<group>"; };
+		E3102329201CD3A30048DB61 /* Proxima Nova Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Regular.otf"; sourceTree = "<group>"; };
+		E310232A201CD3A30048DB61 /* Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
+		E310232B201CD3A40048DB61 /* Proxima Nova Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Light.otf"; sourceTree = "<group>"; };
+		E310232C201CD3A40048DB61 /* Proxima Nova Regular Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Regular Italic.otf"; sourceTree = "<group>"; };
+		E310232D201CD3A40048DB61 /* Proxima Nova Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Black.otf"; sourceTree = "<group>"; };
+		E310232E201CD3A40048DB61 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +168,7 @@
 			children = (
 				E310231C201C903A0048DB61 /* TabBarVC.swift */,
 				E3102320201CCCEE0048DB61 /* TopicVC.swift */,
-				E31022E9201C63A30048DB61 /* FirstVC.swift */,
+				E31022E9201C63A30048DB61 /* RecordVC.swift */,
 				E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */,
 			);
 			path = Controllers;
@@ -185,12 +191,26 @@
 		E3102319201C64280048DB61 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				E3102322201CD2840048DB61 /* Fonts */,
 				E31022E7201C63A30048DB61 /* AppDelegate.swift */,
 				E31022EE201C63A30048DB61 /* Assets.xcassets */,
 				E31022F0201C63A30048DB61 /* LaunchScreen.storyboard */,
 				E31022F3201C63A30048DB61 /* Info.plist */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		E3102322201CD2840048DB61 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E310232D201CD3A40048DB61 /* Proxima Nova Black.otf */,
+				E310232E201CD3A40048DB61 /* Proxima Nova Bold.otf */,
+				E310232B201CD3A40048DB61 /* Proxima Nova Light.otf */,
+				E310232C201CD3A40048DB61 /* Proxima Nova Regular Italic.otf */,
+				E3102329201CD3A30048DB61 /* Proxima Nova Regular.otf */,
+				E310232A201CD3A30048DB61 /* Proxima Nova Semibold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		F15978197AD298B674955022 /* Frameworks */ = {
@@ -483,7 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E31022EA201C63A30048DB61 /* FirstVC.swift in Sources */,
+				E31022EA201C63A30048DB61 /* RecordVC.swift in Sources */,
 				E3102321201CCCEE0048DB61 /* TopicVC.swift in Sources */,
 				E310231D201C903A0048DB61 /* TabBarVC.swift in Sources */,
 				E310231F201C94A00048DB61 /* AnalyzingFillerVC.swift in Sources */,

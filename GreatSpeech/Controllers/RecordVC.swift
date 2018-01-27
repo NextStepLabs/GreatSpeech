@@ -10,11 +10,14 @@ import UIKit
 import Speech
 import EasyPeasy
 
-class FirstVC: UIViewController, SFSpeechRecognizerDelegate {
+class RecordVC: UIViewController, SFSpeechRecognizerDelegate {
     
     //MARK: Declaring the UI elements
     let startButton = UIButton()
     let detectedTextLabel = UILabel()
+    let firstLabel = UILabel()
+    let secondLabel = UILabel()
+    let thirdLabel = UILabel()
     
     //MARK: Initializing of the AudioEngine, Speech recognizer
     let audioEngine = AVAudioEngine()
@@ -43,6 +46,10 @@ class FirstVC: UIViewController, SFSpeechRecognizerDelegate {
             isRecording = true
             startButton.backgroundColor = UIColor.red
         }
+    }
+    
+    @objc func backButtonPressed(sender: UIBarButtonItem) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func cancelRecording() {
@@ -84,7 +91,7 @@ class FirstVC: UIViewController, SFSpeechRecognizerDelegate {
                 var lastString: String = ""
                 for segment in result.bestTranscription.segments {
                     let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
-                    lastString = bestString.substring(from: indexTo)
+                    lastString = String(bestString[indexTo...])
                 }
                 self.checkForColorsSaid(resultString: lastString)
             } else if let error = error {
@@ -136,6 +143,8 @@ class FirstVC: UIViewController, SFSpeechRecognizerDelegate {
             view.backgroundColor = UIColor.white
         case "ааа":
             view.backgroundColor = UIColor.gray
+        case "стоп":
+            cancelRecording()
         default: break
         }
     }
@@ -149,7 +158,8 @@ class FirstVC: UIViewController, SFSpeechRecognizerDelegate {
 }
 
 //MARK: Extension for setuping UI
-extension FirstVC {
+extension RecordVC {
+    
     func setupViews() {
         
         //start button setuping
@@ -166,27 +176,41 @@ extension FirstVC {
         detectedTextLabel.numberOfLines = 0
         detectedTextLabel.adjustsFontSizeToFitWidth = true
         
+        // first question label setuping
+        firstLabel.text = "Расскажите о себе"
+        firstLabel.textAlignment = .left
+        firstLabel.adjustsFontSizeToFitWidth = true
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: .plain, target: self, action: #selector(backButtonPressed(sender:)))
+        
         view.backgroundColor = UIColor.white
         
         //adding UIElements to superView
-        [startButton, detectedTextLabel].forEach {
+        [firstLabel, detectedTextLabel, startButton].forEach {
             view.addSubview($0)
         }
     }
+    
     func setupingConstraints() {
+        
+        firstLabel <- [
+            Top(5).to(view),
+            Left(15),
+            Right(15)
+        ]
+        
+        detectedTextLabel <- [
+            Top(10).to(firstLabel),
+            Left(15),
+            Right(15),
+            Bottom(10).to(startButton)
+        ]
+        
         startButton <- [
             Width(100),
             Height(100),
             CenterX(0),
             CenterY(0)
         ]
-        
-        detectedTextLabel <- [
-            Top(40),
-            Left(20),
-            Right(20),
-            Bottom(30).to(startButton)
-        ]
     }
 }
-
