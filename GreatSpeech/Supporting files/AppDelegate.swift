@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
         //MARK: Setuping the initial view screent
-        firstViewController = ViewController()
+        firstViewController = TabBarVC()
         self.firstNavigationController = UINavigationController()
         
         if let firstNavigationController = self.firstNavigationController {

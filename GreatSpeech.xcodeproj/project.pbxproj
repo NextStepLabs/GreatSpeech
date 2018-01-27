@@ -10,11 +10,13 @@
 		50655C76587227F1E7A0F518 /* Pods_GreatSpeechUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1323C6E60CF558451F17F2D3 /* Pods_GreatSpeechUITests.framework */; };
 		908349FDE29F179256B3D733 /* Pods_GreatSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD194D021FFA149BF6FC4CD2 /* Pods_GreatSpeech.framework */; };
 		E31022E8201C63A30048DB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022E7201C63A30048DB61 /* AppDelegate.swift */; };
-		E31022EA201C63A30048DB61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022E9201C63A30048DB61 /* ViewController.swift */; };
+		E31022EA201C63A30048DB61 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022E9201C63A30048DB61 /* FirstVC.swift */; };
 		E31022EF201C63A30048DB61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31022EE201C63A30048DB61 /* Assets.xcassets */; };
 		E31022F2201C63A30048DB61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31022F0201C63A30048DB61 /* LaunchScreen.storyboard */; };
 		E31022FD201C63A30048DB61 /* GreatSpeechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022FC201C63A30048DB61 /* GreatSpeechTests.swift */; };
 		E3102308201C63A30048DB61 /* GreatSpeechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3102307201C63A30048DB61 /* GreatSpeechUITests.swift */; };
+		E310231D201C903A0048DB61 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310231C201C903A0048DB61 /* TabBarVC.swift */; };
+		E310231F201C94A00048DB61 /* AnalyzingFillerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */; };
 		F0A9F5E68D2EF94C40648433 /* Pods_GreatSpeechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F119E877C904AC51F697E63 /* Pods_GreatSpeechTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +49,7 @@
 		DD194D021FFA149BF6FC4CD2 /* Pods_GreatSpeech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreatSpeech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31022E4201C63A30048DB61 /* GreatSpeech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreatSpeech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31022E7201C63A30048DB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E31022E9201C63A30048DB61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E31022E9201C63A30048DB61 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		E31022EE201C63A30048DB61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E31022F1201C63A30048DB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E31022F3201C63A30048DB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		E3102303201C63A30048DB61 /* GreatSpeechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreatSpeechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3102307201C63A30048DB61 /* GreatSpeechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatSpeechUITests.swift; sourceTree = "<group>"; };
 		E3102309201C63A30048DB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E310231C201C903A0048DB61 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzingFillerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +158,9 @@
 		E3102315201C63C70048DB61 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E31022E9201C63A30048DB61 /* ViewController.swift */,
+				E31022E9201C63A30048DB61 /* FirstVC.swift */,
+				E310231C201C903A0048DB61 /* TabBarVC.swift */,
+				E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -474,7 +480,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E31022EA201C63A30048DB61 /* ViewController.swift in Sources */,
+				E31022EA201C63A30048DB61 /* FirstVC.swift in Sources */,
+				E310231D201C903A0048DB61 /* TabBarVC.swift in Sources */,
+				E310231F201C94A00048DB61 /* AnalyzingFillerVC.swift in Sources */,
 				E31022E8201C63A30048DB61 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

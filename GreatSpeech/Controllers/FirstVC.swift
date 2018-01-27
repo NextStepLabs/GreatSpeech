@@ -10,12 +10,11 @@ import UIKit
 import Speech
 import EasyPeasy
 
-class ViewController: UIViewController, SFSpeechRecognizerDelegate {
+class FirstVC: UIViewController, SFSpeechRecognizerDelegate {
     
     //MARK: Declaring the UI elements
     let startButton = UIButton()
     let detectedTextLabel = UILabel()
-    
     
     //MARK: Initializing of the AudioEngine, Speech recognizer
     let audioEngine = AVAudioEngine()
@@ -48,14 +47,14 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     func cancelRecording() {
         audioEngine.stop()
-        if let node = audioEngine.inputNode {
+        if let node = audioEngine.inputNode as AVAudioInputNode?{
             node.removeTap(onBus: 0)
         }
         recognitionTask?.cancel()
     }
     
     func recordAndRecognizeSpeech() {
-        guard let node = audioEngine.inputNode else { return }
+        guard let node = audioEngine.inputNode as AVAudioInputNode? else { return }
         let recordingFormat = node.outputFormat(forBus: 0)
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
             self.request.append(buffer)
@@ -150,7 +149,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
 }
 
 //MARK: Extension for setuping UI
-extension ViewController {
+extension FirstVC {
     func setupViews() {
         
         //start button setuping
