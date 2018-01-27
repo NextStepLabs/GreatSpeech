@@ -21,141 +21,106 @@ class RecordVC: UIViewController, SFSpeechRecognizerDelegate {
     
     //MARK: Initializing of the AudioEngine, Speech recognizer
     let audioEngine = AVAudioEngine()
-    let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ru-Ru"))
+    let speechRecognizer = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
-    var isRecording = false
-
+    var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
+    var state = false
+    var initialized = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setupingConstraints()
-        self.requestSpeechAuthorization()
     }
     
     //MARK: IBActions start and cancel
     @objc func startButtonPressed(sender: UIButton) {
-        if isRecording == true {
-            audioEngine.stop()
-            recognitionTask?.cancel()
-            isRecording = false
-            startButton.backgroundColor = UIColor.gray
-        } else {
-            self.recordAndRecognizeSpeech()
-            isRecording = true
-            startButton.backgroundColor = UIColor.red
+//        stopRecording()
+        if state {
+            stopRecording()
+            state = !state
+        }else{
+            SFSpeechRecognizer.requestAuthorization {
+                [unowned self] (authStatus) in
+                switch authStatus {
+                case .authorized:
+                    do {
+                        try self.startRecording()
+                        self.state = !self.state
+                    } catch let error {
+                        print("There was a problem starting recording: \(error.localizedDescription)")
+                    }
+                case .denied:
+                    print("Speech recognition authorization denied")
+                case .restricted:
+                    print("Not available on this device")
+                case .notDetermined:
+                    print("Not determined")
+                }
+            }
         }
+        
     }
     
     @objc func backButtonPressed(sender: UIBarButtonItem) {
         _ = self.navigationController?.popViewController(animated: true)
     }
-    
-    func cancelRecording() {
-        audioEngine.stop()
-        if let node = audioEngine.inputNode as AVAudioInputNode?{
-            node.removeTap(onBus: 0)
+}
+extension RecordVC {
+    fileprivate func startRecording() throws {
+        mostRecentlyProcessedSegmentDuration = 0
+        DispatchQueue.main.async {
+            self.detectedTextLabel.text = ""
+            self.startButton.backgroundColor = UIColor.red
         }
-        recognitionTask?.cancel()
-    }
-    
-    func recordAndRecognizeSpeech() {
-        guard let node = audioEngine.inputNode as AVAudioInputNode? else { return }
+        
+        let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
-        node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
-            self.request.append(buffer)
+        
+        if initialized {
+                initialized = !initialized
+        } else {
+            node.installTap(onBus: 0, bufferSize: 1024,
+                            format: recordingFormat) { [unowned self]
+                                (buffer, _) in
+                                self.request.append(buffer)
+            }
+            initialized = !initialized
         }
+        
         audioEngine.prepare()
-        do {
-            try audioEngine.start()
-        } catch {
-            self.sendAlert(message: "audio engine error.")
-            return print(error)
-        }
-        guard let myRecognizer = SFSpeechRecognizer() else {
-            self.sendAlert(message: "not supported your locale")
-            return
-        }
-        if !myRecognizer.isAvailable {
-            self.sendAlert(message: "not available")
-            // Recognizer is not available right now
-            return
-        }
-        recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
-            if let result = result {
-                //                print("result \(result)")
-                let bestString = result.bestTranscription.formattedString
-                self.detectedTextLabel.text = bestString
-                
-                var lastString: String = ""
-                for segment in result.bestTranscription.segments {
-                    let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
-                    lastString = String(bestString[indexTo...])
-                }
-                self.checkForColorsSaid(resultString: lastString)
-            } else if let error = error {
-                self.sendAlert(message: "a speech recognition error.")
-                print(error)
-            }
-        })
-    }
-    
-    //MARK: - Check Authorization Status
-    func requestSpeechAuthorization() {
-        SFSpeechRecognizer.requestAuthorization { authStatus in
-            OperationQueue.main.addOperation {
-                switch authStatus {
-                case .authorized:
-                    self.startButton.isEnabled = true
-                case .denied:
-                    self.startButton.isEnabled = false
-                    self.detectedTextLabel.text = "User denied access to speech recognition"
-                case .restricted:
-                    self.startButton.isEnabled = false
-                    self.detectedTextLabel.text = "Speech recognition restricted"
-                case .notDetermined:
-                    self.startButton.isEnabled = false
-                    self.detectedTextLabel.text = "not yet authorized"
-                }
+        try audioEngine.start()
+        recognitionTask = speechRecognizer?.recognitionTask(with: request) {
+            [unowned self]
+            (result, _) in
+            if let transcription = result?.bestTranscription {
+                self.updateUIWithTranscription(transcription)
             }
         }
     }
     
-    //MARK: - UI / Set view color.
-    func checkForColorsSaid(resultString: String) {
-        switch resultString {
-        case "блин":
-            view.backgroundColor = UIColor.red
-        case "черт":
-            view.backgroundColor = UIColor.orange
-        case "ой":
-            view.backgroundColor = UIColor.yellow
-        case "вот":
-            view.backgroundColor = UIColor.green
-        case "уфф":
-            view.backgroundColor = UIColor.blue
-        case "тупой":
-            view.backgroundColor = UIColor.purple
-        case "так":
-            view.backgroundColor = UIColor.black
-        case "однако":
-            view.backgroundColor = UIColor.white
-        case "ааа":
-            view.backgroundColor = UIColor.gray
-        case "стоп":
-            cancelRecording()
-        default: break
-        }
-    }
-    
-    //MARK: - Alert
-    func sendAlert(message: String) {
-        let alert = UIAlertController(title: "Speech Recognizer Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    fileprivate func stopRecording() {
+        audioEngine.stop()
+        request.endAudio()
+        recognitionTask?.cancel()
+        self.startButton.backgroundColor = UIColor.blue
     }
 }
+
+extension RecordVC {
+    fileprivate func updateUIWithTranscription(_ transcription: SFTranscription) {
+        self.detectedTextLabel.text = transcription.formattedString
+        
+        if let lastSegment = transcription.segments.last,
+            lastSegment.duration > mostRecentlyProcessedSegmentDuration {
+            mostRecentlyProcessedSegmentDuration = lastSegment.duration
+        }
+    }
+}
+
+
 
 //MARK: Extension for setuping UI
 extension RecordVC {
@@ -177,16 +142,26 @@ extension RecordVC {
         detectedTextLabel.adjustsFontSizeToFitWidth = true
         
         // first question label setuping
-        firstLabel.text = "Расскажите о себе"
+        firstLabel.text = "1. Расскажите о себе"
         firstLabel.textAlignment = .left
         firstLabel.adjustsFontSizeToFitWidth = true
+        
+        //second question label setuping
+        secondLabel.text = "2. Расскажите про ваш хобби"
+        secondLabel.textAlignment = .left
+        secondLabel.adjustsFontSizeToFitWidth = true
+        
+        //third question label setuping
+        thirdLabel.text = "3. Расскажите про вашу работу"
+        thirdLabel.textAlignment = .left
+        thirdLabel.adjustsFontSizeToFitWidth = true
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_arrow"), style: .plain, target: self, action: #selector(backButtonPressed(sender:)))
         
         view.backgroundColor = UIColor.white
         
         //adding UIElements to superView
-        [firstLabel, detectedTextLabel, startButton].forEach {
+        [firstLabel, secondLabel, thirdLabel, startButton, detectedTextLabel].forEach {
             view.addSubview($0)
         }
     }
@@ -194,23 +169,37 @@ extension RecordVC {
     func setupingConstraints() {
         
         firstLabel <- [
-            Top(5).to(view),
+            Top(75),
             Left(15),
             Right(15)
         ]
         
-        detectedTextLabel <- [
+        secondLabel <- [
             Top(10).to(firstLabel),
             Left(15),
-            Right(15),
-            Bottom(10).to(startButton)
+            Right(15)
+        ]
+
+        thirdLabel <- [
+            Top(10).to(secondLabel),
+            Left(15),
+            Right(15)
+        ]
+
+        startButton <- [
+            CenterX(0),
+            Bottom(55),
+            Width(200),
+            Height(60)
         ]
         
-        startButton <- [
-            Width(100),
-            Height(100),
-            CenterX(0),
-            CenterY(0)
+        detectedTextLabel <- [
+            Top(10).to(thirdLabel),
+            Left(15),
+            Right(15),
+            Height(250)
         ]
+        
+
     }
 }
