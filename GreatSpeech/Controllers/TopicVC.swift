@@ -1,5 +1,5 @@
 //
-//  AnalyzingFillerVC.swift
+//  TopicVC.swift
 //  GreatSpeech
 //
 //  Created by Aibek Rakhim on 1/27/18.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AnalyzingFillerVC: UIViewController {
+class TopicVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
     }
+    
 }

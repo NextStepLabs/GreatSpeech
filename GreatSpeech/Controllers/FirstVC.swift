@@ -124,15 +124,15 @@ class FirstVC: UIViewController, SFSpeechRecognizerDelegate {
             view.backgroundColor = UIColor.orange
         case "ой":
             view.backgroundColor = UIColor.yellow
-        case "ух":
+        case "вот":
             view.backgroundColor = UIColor.green
         case "уфф":
             view.backgroundColor = UIColor.blue
         case "тупой":
             view.backgroundColor = UIColor.purple
-        case "дурак":
+        case "так":
             view.backgroundColor = UIColor.black
-        case "дура":
+        case "однако":
             view.backgroundColor = UIColor.white
         case "ааа":
             view.backgroundColor = UIColor.gray

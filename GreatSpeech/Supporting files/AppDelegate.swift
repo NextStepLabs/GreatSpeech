@@ -12,27 +12,33 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate {
 
     var window: UIWindow?
-    var firstNavigationController: UINavigationController?
-    var firstViewController: UIViewController?
+//    var firstNavigationController: UINavigationController?
+//    var firstViewController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
-        //MARK: Setuping the initial view screent
-        firstViewController = TabBarVC()
-        self.firstNavigationController = UINavigationController()
-        
-        if let firstNavigationController = self.firstNavigationController {
-            
-            firstNavigationController.delegate = self
-            firstNavigationController.setNavigationBarHidden(true, animated: false)
-            firstNavigationController.pushViewController(firstViewController!, animated: false)
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-
-            if let window = self.window {
-                window.rootViewController = firstNavigationController
-                window.makeKeyAndVisible()
-            }
-        }
+        //MARK: Setuping the initial view screen
+        let tabBarController = TabBarVC()
+        let navigationController = UINavigationController(rootViewController: tabBarController)
+        navigationController.isNavigationBarHidden = false
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+//        firstViewController = TabBarVC()
+//        self.firstNavigationController = UINavigationController()
+//
+//        if let firstNavigationController = self.firstNavigationController {
+//
+//            firstNavigationController.delegate = self
+//            firstNavigationController.setNavigationBarHidden(true, animated: false)
+//            firstNavigationController.pushViewController(firstViewController!, animated: false)
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//
+//            if let window = self.window {
+//                window.rootViewController = firstNavigationController
+//                window.makeKeyAndVisible()
+//            }
+//        }
         
         return true
     }

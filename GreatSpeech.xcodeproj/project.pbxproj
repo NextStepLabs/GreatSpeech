@@ -17,6 +17,7 @@
 		E3102308201C63A30048DB61 /* GreatSpeechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3102307201C63A30048DB61 /* GreatSpeechUITests.swift */; };
 		E310231D201C903A0048DB61 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310231C201C903A0048DB61 /* TabBarVC.swift */; };
 		E310231F201C94A00048DB61 /* AnalyzingFillerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */; };
+		E3102321201CCCEE0048DB61 /* TopicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3102320201CCCEE0048DB61 /* TopicVC.swift */; };
 		F0A9F5E68D2EF94C40648433 /* Pods_GreatSpeechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F119E877C904AC51F697E63 /* Pods_GreatSpeechTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		E3102309201C63A30048DB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E310231C201C903A0048DB61 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzingFillerVC.swift; sourceTree = "<group>"; };
+		E3102320201CCCEE0048DB61 /* TopicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,8 +160,9 @@
 		E3102315201C63C70048DB61 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E31022E9201C63A30048DB61 /* FirstVC.swift */,
 				E310231C201C903A0048DB61 /* TabBarVC.swift */,
+				E3102320201CCCEE0048DB61 /* TopicVC.swift */,
+				E31022E9201C63A30048DB61 /* FirstVC.swift */,
 				E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */,
 			);
 			path = Controllers;
@@ -481,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E31022EA201C63A30048DB61 /* FirstVC.swift in Sources */,
+				E3102321201CCCEE0048DB61 /* TopicVC.swift in Sources */,
 				E310231D201C903A0048DB61 /* TabBarVC.swift in Sources */,
 				E310231F201C94A00048DB61 /* AnalyzingFillerVC.swift in Sources */,
 				E31022E8201C63A30048DB61 /* AppDelegate.swift in Sources */,
