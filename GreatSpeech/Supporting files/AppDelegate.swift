@@ -9,13 +9,31 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate {
 
     var window: UIWindow?
-
+    var firstNavigationController: UINavigationController?
+    var firstViewController: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+        //MARK: Setuping the initial view screent
+        firstViewController = ViewController()
+        self.firstNavigationController = UINavigationController()
+        
+        if let firstNavigationController = self.firstNavigationController {
+            
+            firstNavigationController.delegate = self
+            firstNavigationController.setNavigationBarHidden(true, animated: false)
+            firstNavigationController.pushViewController(firstViewController!, animated: false)
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+
+            if let window = self.window {
+                window.rootViewController = firstNavigationController
+                window.makeKeyAndVisible()
+            }
+        }
+        
         return true
     }
 

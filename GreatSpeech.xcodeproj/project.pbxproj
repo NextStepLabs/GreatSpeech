@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50655C76587227F1E7A0F518 /* Pods_GreatSpeechUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1323C6E60CF558451F17F2D3 /* Pods_GreatSpeechUITests.framework */; };
+		908349FDE29F179256B3D733 /* Pods_GreatSpeech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD194D021FFA149BF6FC4CD2 /* Pods_GreatSpeech.framework */; };
 		E31022E8201C63A30048DB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022E7201C63A30048DB61 /* AppDelegate.swift */; };
 		E31022EA201C63A30048DB61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022E9201C63A30048DB61 /* ViewController.swift */; };
-		E31022ED201C63A30048DB61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31022EB201C63A30048DB61 /* Main.storyboard */; };
 		E31022EF201C63A30048DB61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31022EE201C63A30048DB61 /* Assets.xcassets */; };
 		E31022F2201C63A30048DB61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31022F0201C63A30048DB61 /* LaunchScreen.storyboard */; };
 		E31022FD201C63A30048DB61 /* GreatSpeechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31022FC201C63A30048DB61 /* GreatSpeechTests.swift */; };
 		E3102308201C63A30048DB61 /* GreatSpeechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3102307201C63A30048DB61 /* GreatSpeechUITests.swift */; };
+		F0A9F5E68D2EF94C40648433 /* Pods_GreatSpeechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F119E877C904AC51F697E63 /* Pods_GreatSpeechTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +36,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0537E95EE91375D6C912813D /* Pods-GreatSpeechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreatSpeechTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreatSpeechTests/Pods-GreatSpeechTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1323C6E60CF558451F17F2D3 /* Pods_GreatSpeechUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreatSpeechUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F119E877C904AC51F697E63 /* Pods_GreatSpeechTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreatSpeechTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6786AE987B6DDF2994659CAE /* Pods-GreatSpeech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreatSpeech.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreatSpeech/Pods-GreatSpeech.release.xcconfig"; sourceTree = "<group>"; };
+		A4B15829924C40BFAD3723F1 /* Pods-GreatSpeechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreatSpeechTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreatSpeechTests/Pods-GreatSpeechTests.release.xcconfig"; sourceTree = "<group>"; };
+		A53D39242AB0921A7616661F /* Pods-GreatSpeech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreatSpeech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreatSpeech/Pods-GreatSpeech.debug.xcconfig"; sourceTree = "<group>"; };
+		A83CBE999CD2B28E0D72A398 /* Pods-GreatSpeechUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreatSpeechUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GreatSpeechUITests/Pods-GreatSpeechUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D2CEBCE47C2519C5C6ABE699 /* Pods-GreatSpeechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreatSpeechUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GreatSpeechUITests/Pods-GreatSpeechUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DD194D021FFA149BF6FC4CD2 /* Pods_GreatSpeech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GreatSpeech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31022E4201C63A30048DB61 /* GreatSpeech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreatSpeech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31022E7201C63A30048DB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E31022E9201C63A30048DB61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E31022EC201C63A30048DB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E31022EE201C63A30048DB61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E31022F1201C63A30048DB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E31022F3201C63A30048DB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908349FDE29F179256B3D733 /* Pods_GreatSpeech.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A9F5E68D2EF94C40648433 /* Pods_GreatSpeechTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +80,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50655C76587227F1E7A0F518 /* Pods_GreatSpeechUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65298652FBB29BA18E3483A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A53D39242AB0921A7616661F /* Pods-GreatSpeech.debug.xcconfig */,
+				6786AE987B6DDF2994659CAE /* Pods-GreatSpeech.release.xcconfig */,
+				0537E95EE91375D6C912813D /* Pods-GreatSpeechTests.debug.xcconfig */,
+				A4B15829924C40BFAD3723F1 /* Pods-GreatSpeechTests.release.xcconfig */,
+				A83CBE999CD2B28E0D72A398 /* Pods-GreatSpeechUITests.debug.xcconfig */,
+				D2CEBCE47C2519C5C6ABE699 /* Pods-GreatSpeechUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E31022DB201C63A30048DB61 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +107,8 @@
 				E31022FB201C63A30048DB61 /* GreatSpeechTests */,
 				E3102306201C63A30048DB61 /* GreatSpeechUITests */,
 				E31022E5201C63A30048DB61 /* Products */,
+				65298652FBB29BA18E3483A5 /* Pods */,
+				F15978197AD298B674955022 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +125,10 @@
 		E31022E6201C63A30048DB61 /* GreatSpeech */ = {
 			isa = PBXGroup;
 			children = (
-				E31022E7201C63A30048DB61 /* AppDelegate.swift */,
-				E31022E9201C63A30048DB61 /* ViewController.swift */,
-				E31022EB201C63A30048DB61 /* Main.storyboard */,
-				E31022EE201C63A30048DB61 /* Assets.xcassets */,
-				E31022F0201C63A30048DB61 /* LaunchScreen.storyboard */,
-				E31022F3201C63A30048DB61 /* Info.plist */,
+				E3102319201C64280048DB61 /* Supporting files */,
+				E3102317201C63D90048DB61 /* Models */,
+				E3102316201C63D00048DB61 /* Views */,
+				E3102315201C63C70048DB61 /* Controllers */,
 			);
 			path = GreatSpeech;
 			sourceTree = "<group>";
@@ -125,6 +151,49 @@
 			path = GreatSpeechUITests;
 			sourceTree = "<group>";
 		};
+		E3102315201C63C70048DB61 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E31022E9201C63A30048DB61 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E3102316201C63D00048DB61 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E3102317201C63D90048DB61 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3102319201C64280048DB61 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				E31022E7201C63A30048DB61 /* AppDelegate.swift */,
+				E31022EE201C63A30048DB61 /* Assets.xcassets */,
+				E31022F0201C63A30048DB61 /* LaunchScreen.storyboard */,
+				E31022F3201C63A30048DB61 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		F15978197AD298B674955022 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD194D021FFA149BF6FC4CD2 /* Pods_GreatSpeech.framework */,
+				1F119E877C904AC51F697E63 /* Pods_GreatSpeechTests.framework */,
+				1323C6E60CF558451F17F2D3 /* Pods_GreatSpeechUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E310230C201C63A30048DB61 /* Build configuration list for PBXNativeTarget "GreatSpeech" */;
 			buildPhases = (
+				014A50F68C327FC7E1B867B7 /* [CP] Check Pods Manifest.lock */,
 				E31022E0201C63A30048DB61 /* Sources */,
 				E31022E1201C63A30048DB61 /* Frameworks */,
 				E31022E2201C63A30048DB61 /* Resources */,
+				7966068D758343948C050067 /* [CP] Embed Pods Frameworks */,
+				3D6B92886B5742948E234086 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E310230F201C63A30048DB61 /* Build configuration list for PBXNativeTarget "GreatSpeechTests" */;
 			buildPhases = (
+				D66D811FF293205D5A30AC63 /* [CP] Check Pods Manifest.lock */,
 				E31022F4201C63A30048DB61 /* Sources */,
 				E31022F5201C63A30048DB61 /* Frameworks */,
 				E31022F6201C63A30048DB61 /* Resources */,
+				440A60355572CFD2FA3E744B /* [CP] Embed Pods Frameworks */,
+				1DB2C4DFC16CCE23F1311E44 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3102312201C63A30048DB61 /* Build configuration list for PBXNativeTarget "GreatSpeechUITests" */;
 			buildPhases = (
+				DAA1B5CB8812D0062ECBE094 /* [CP] Check Pods Manifest.lock */,
 				E31022FF201C63A30048DB61 /* Sources */,
 				E3102300201C63A30048DB61 /* Frameworks */,
 				E3102301201C63A30048DB61 /* Resources */,
+				77A43FF9F4369C04AFE5C32E /* [CP] Embed Pods Frameworks */,
+				54488640772A04E54F0CE452 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,7 +312,6 @@
 			files = (
 				E31022F2201C63A30048DB61 /* LaunchScreen.storyboard in Resources */,
 				E31022EF201C63A30048DB61 /* Assets.xcassets in Resources */,
-				E31022ED201C63A30048DB61 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +330,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		014A50F68C327FC7E1B867B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1DB2C4DFC16CCE23F1311E44 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreatSpeechTests/Pods-GreatSpeechTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D6B92886B5742948E234086 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreatSpeech/Pods-GreatSpeech-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		440A60355572CFD2FA3E744B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreatSpeechTests/Pods-GreatSpeechTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54488640772A04E54F0CE452 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreatSpeechUITests/Pods-GreatSpeechUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77A43FF9F4369C04AFE5C32E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreatSpeechUITests/Pods-GreatSpeechUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7966068D758343948C050067 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GreatSpeech/Pods-GreatSpeech-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D66D811FF293205D5A30AC63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DAA1B5CB8812D0062ECBE094 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E31022E0201C63A30048DB61 /* Sources */ = {
@@ -296,14 +511,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E31022EB201C63A30048DB61 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E31022EC201C63A30048DB61 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E31022F0201C63A30048DB61 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -424,11 +631,12 @@
 		};
 		E310230D201C63A30048DB61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A53D39242AB0921A7616661F /* Pods-GreatSpeech.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZX75ER273A;
-				INFOPLIST_FILE = GreatSpeech/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GreatSpeech/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nslabs.app.GreatSpeech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,11 +647,12 @@
 		};
 		E310230E201C63A30048DB61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6786AE987B6DDF2994659CAE /* Pods-GreatSpeech.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZX75ER273A;
-				INFOPLIST_FILE = GreatSpeech/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GreatSpeech/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nslabs.app.GreatSpeech;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -454,6 +663,7 @@
 		};
 		E3102310201C63A30048DB61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0537E95EE91375D6C912813D /* Pods-GreatSpeechTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +681,7 @@
 		};
 		E3102311201C63A30048DB61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4B15829924C40BFAD3723F1 /* Pods-GreatSpeechTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +699,7 @@
 		};
 		E3102313201C63A30048DB61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A83CBE999CD2B28E0D72A398 /* Pods-GreatSpeechUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +716,7 @@
 		};
 		E3102314201C63A30048DB61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2CEBCE47C2519C5C6ABE699 /* Pods-GreatSpeechUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
