@@ -18,6 +18,8 @@
 		E310231D201C903A0048DB61 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310231C201C903A0048DB61 /* TabBarVC.swift */; };
 		E310231F201C94A00048DB61 /* AnalyzingFillerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */; };
 		E3102321201CCCEE0048DB61 /* TopicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3102320201CCCEE0048DB61 /* TopicVC.swift */; };
+		E3B13455201D2B6F003E94D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3B13454201D2B6F003E94D5 /* GoogleService-Info.plist */; };
+		E3B13457201D361C003E94D5 /* InfoSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B13456201D361C003E94D5 /* InfoSpeech.swift */; };
 		F0A9F5E68D2EF94C40648433 /* Pods_GreatSpeechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F119E877C904AC51F697E63 /* Pods_GreatSpeechTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		E310232C201CD3A40048DB61 /* Proxima Nova Regular Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Regular Italic.otf"; sourceTree = "<group>"; };
 		E310232D201CD3A40048DB61 /* Proxima Nova Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Black.otf"; sourceTree = "<group>"; };
 		E310232E201CD3A40048DB61 /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
+		E3B13454201D2B6F003E94D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3B13456201D361C003E94D5 /* InfoSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSpeech.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,7 @@
 				E3102320201CCCEE0048DB61 /* TopicVC.swift */,
 				E31022E9201C63A30048DB61 /* RecordVC.swift */,
 				E310231E201C94A00048DB61 /* AnalyzingFillerVC.swift */,
+				E3B13456201D361C003E94D5 /* InfoSpeech.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 		E3102319201C64280048DB61 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				E3B13454201D2B6F003E94D5 /* GoogleService-Info.plist */,
 				E3102322201CD2840048DB61 /* Fonts */,
 				E31022E7201C63A30048DB61 /* AppDelegate.swift */,
 				E31022EE201C63A30048DB61 /* Assets.xcassets */,
@@ -341,6 +347,7 @@
 			files = (
 				E31022F2201C63A30048DB61 /* LaunchScreen.storyboard in Resources */,
 				E31022EF201C63A30048DB61 /* Assets.xcassets in Resources */,
+				E3B13455201D2B6F003E94D5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +513,7 @@
 				E31022EA201C63A30048DB61 /* RecordVC.swift in Sources */,
 				E3102321201CCCEE0048DB61 /* TopicVC.swift in Sources */,
 				E310231D201C903A0048DB61 /* TabBarVC.swift in Sources */,
+				E3B13457201D361C003E94D5 /* InfoSpeech.swift in Sources */,
 				E310231F201C94A00048DB61 /* AnalyzingFillerVC.swift in Sources */,
 				E31022E8201C63A30048DB61 /* AppDelegate.swift in Sources */,
 			);

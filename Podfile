@@ -7,6 +7,7 @@ target 'GreatSpeech' do
 
   # Pods for GreatSpeech
   pod 'EasyPeasy'
+  pod 'Firebase/Database'
 
   target 'GreatSpeechTests' do
     inherit! :search_paths

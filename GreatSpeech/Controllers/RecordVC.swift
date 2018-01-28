@@ -9,6 +9,7 @@
 import UIKit
 import Speech
 import EasyPeasy
+import FirebaseDatabase
 
 class RecordVC: UIViewController, SFSpeechRecognizerDelegate {
     
@@ -19,28 +20,45 @@ class RecordVC: UIViewController, SFSpeechRecognizerDelegate {
     let secondLabel = UILabel()
     let thirdLabel = UILabel()
     
-    //MARK: Initializing of the AudioEngine, Speech recognizer
+    //MARK: Initializing of the AudioEngine, Speech recognizer, Firebase, Properties
     let audioEngine = AVAudioEngine()
-    let speechRecognizer = SFSpeechRecognizer()
+    let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ru-Ru"))
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
     var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
     var state = false
     var initialized = false
+    var allText = " "
+    var counts : [String : Int] = [ : ]
+    var ref : DatabaseReference!
+    let refData = "Data"
+    let refFiller = "Filler"
+    var fillers: Array<String>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setupingConstraints()
+        
+        //setuping firebase
+        self.ref = Database.database().reference()
+        ref.child(refFiller).observe(.value, with:{(snapshot) in
+            print(snapshot.value as! String)
+            let allFillers = snapshot.value as! String
+            self.fillers = allFillers.components(separatedBy: CharacterSet.alphanumerics.inverted).filter{ $0 != "" }
+            print("fillers \(self.fillers ?? [""])")
+        }
+        )
     }
     
     //MARK: IBActions start and cancel
     @objc func startButtonPressed(sender: UIButton) {
-//        stopRecording()
         if state {
             stopRecording()
             state = !state
+            sender.setTitle("Начать", for: UIControlState.normal)
+            self.startButton.backgroundColor = UIColor.blue
         }else{
             SFSpeechRecognizer.requestAuthorization {
                 [unowned self] (authStatus) in
@@ -74,6 +92,7 @@ extension RecordVC {
         DispatchQueue.main.async {
             self.detectedTextLabel.text = ""
             self.startButton.backgroundColor = UIColor.red
+            self.startButton.setTitle("Стоп", for: UIControlState.normal)
         }
         
         let node = audioEngine.inputNode
@@ -82,6 +101,7 @@ extension RecordVC {
         if initialized {
                 initialized = !initialized
         } else {
+            node.removeTap(onBus: 0)
             node.installTap(onBus: 0, bufferSize: 1024,
                             format: recordingFormat) { [unowned self]
                                 (buffer, _) in
@@ -105,7 +125,40 @@ extension RecordVC {
         audioEngine.stop()
         request.endAudio()
         recognitionTask?.cancel()
-        self.startButton.backgroundColor = UIColor.blue
+        if let labelText = detectedTextLabel.text {
+            allText = ""
+            counts = [ : ]
+            allText = labelText.lowercased()
+            let words = allText.components(separatedBy: CharacterSet.alphanumerics.inverted).filter{ return ($0 != "" && $0.count != 1) }
+            words.forEach { self.counts[$0, default: 0] += 1 }
+            let finalCounts = self.counts.sorted{ $0.value > $1.value }
+            print("Counts ",finalCounts )
+            var badWords : [String: Int] = [ : ]
+            finalCounts.forEach{
+                if (words.count/5 < $0.value && self.fillers.contains($0.key)){
+//                    print("\($0.key)  \($0.value)")
+                    badWords[$0.key] = $0.value
+                }
+            }
+            let alert = UIAlertController(title: "Анализ",
+                                          message: "\(words.count) слов высказано \n \(badWords.count) паразит слова", preferredStyle: .alert)
+            let okBtn = UIAlertAction(title: "Подробнее", style: .default, handler: { (action) in
+                
+                let infoSpeechVC = InfoSpeech()
+                infoSpeechVC.word = "hello"
+
+                self.present(InfoSpeech(), animated: true, completion: nil)
+//                self.navigationController?.pushViewController(InfoSpeech(), animated: true)
+            })
+            let cancelBtn = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+            alert.addAction(okBtn)
+            alert.addAction(cancelBtn)
+            self.present(alert, animated: true, completion: nil)
+            
+            if !allText.isEmpty {
+                ref.child(refData).childByAutoId().setValue(allText)
+            }
+        }
     }
 }
 
@@ -199,7 +252,5 @@ extension RecordVC {
             Right(15),
             Height(250)
         ]
-        
-
     }
 }

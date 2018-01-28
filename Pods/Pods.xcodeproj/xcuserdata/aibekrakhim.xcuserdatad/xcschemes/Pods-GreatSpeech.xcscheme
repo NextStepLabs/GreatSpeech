@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0AE6AAD37FAD03A4062BD1146417DF00"
+               BlueprintIdentifier = "F59CFDCD12722D50D42735B39CE75DB5"
                BuildableName = "Pods_GreatSpeech.framework"
                BlueprintName = "Pods-GreatSpeech"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0AE6AAD37FAD03A4062BD1146417DF00"
+            BlueprintIdentifier = "F59CFDCD12722D50D42735B39CE75DB5"
             BuildableName = "Pods_GreatSpeech.framework"
             BlueprintName = "Pods-GreatSpeech"
             ReferencedContainer = "container:Pods.xcodeproj">

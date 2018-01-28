@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate {
@@ -18,23 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
         self.firstNavigationController = UINavigationController()
-        
         tabBarController = TabBarVC()
         
         if let firstNavigationController = self.firstNavigationController {
-            
             firstNavigationController.delegate = self
             firstNavigationController.setNavigationBarHidden(true, animated: false)
             firstNavigationController.pushViewController(tabBarController!, animated: false)
             
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            
             if let window = self.window {
                 window.rootViewController = firstNavigationController
                 window.makeKeyAndVisible()
             }
-            
         }
+        FirebaseApp.configure()
         return true
     }
 
