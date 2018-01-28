@@ -22,11 +22,10 @@ class TabBarVC: UITabBarController {
         
        
         let analyzeVC = AnalyzingFillerVC()
-        analyzeVC.view.backgroundColor = UIColor.blue
         analyzeVC.tabBarItem.image = UIImage(named: "profile_tabBar_unselected")
         analyzeVC.tabBarItem.selectedImage = UIImage(named: "profile_tabBar_selected")?.withRenderingMode(.alwaysOriginal)
-
-        self.viewControllers = [topicNavController, analyzeVC]
+        let analyzeNavController = UINavigationController(rootViewController: analyzeVC)
+        self.viewControllers = [topicNavController, analyzeNavController]
 
     }
 }

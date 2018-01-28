@@ -26,6 +26,7 @@ class RecordVC: UIViewController, SFSpeechRecognizerDelegate {
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
     var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
+    var gradientLayer: CAGradientLayer!
     var state = false
     var initialized = false
     var allText = " "
@@ -34,12 +35,17 @@ class RecordVC: UIViewController, SFSpeechRecognizerDelegate {
     let refData = "Data"
     let refFiller = "Filler"
     var fillers: Array<String>!
+    var titleText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = titleText ?? "hello"
+        
         setupViews()
         setupingConstraints()
+        
+        createGradientLayer()
         
         //setuping firebase
         self.ref = Database.database().reference()
@@ -50,6 +56,7 @@ class RecordVC: UIViewController, SFSpeechRecognizerDelegate {
             print("fillers \(self.fillers ?? [""])")
         }
         )
+        
     }
     
     //MARK: IBActions start and cancel
@@ -84,6 +91,15 @@ class RecordVC: UIViewController, SFSpeechRecognizerDelegate {
     
     @objc func backButtonPressed(sender: UIBarButtonItem) {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    func createGradientLayer() {
+        gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor(red: 73.0/255.0, green: 187.0/255.0, blue: 158.0/255.0, alpha: 1.0).cgColor,
+                                UIColor(red: 31.0/255.0, green: 105.0/255.0, blue: 74.0/255.0, alpha: 1.0).cgColor]
+        gradientLayer.locations = [0, 1]
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 extension RecordVC {
@@ -142,13 +158,12 @@ extension RecordVC {
             }
             let alert = UIAlertController(title: "Анализ",
                                           message: "\(words.count) слов высказано \n \(badWords.count) паразит слова", preferredStyle: .alert)
+            
             let okBtn = UIAlertAction(title: "Подробнее", style: .default, handler: { (action) in
-                
-                let infoSpeechVC = InfoSpeech()
-                infoSpeechVC.word = "hello"
-
-                self.present(InfoSpeech(), animated: true, completion: nil)
-//                self.navigationController?.pushViewController(InfoSpeech(), animated: true)
+                let infoSpeech = InfoSpeech()
+                infoSpeech.fillerNO = badWords.count
+                infoSpeech.wordNO = words.count
+                self.navigationController?.pushViewController(infoSpeech, animated: true)
             })
             let cancelBtn = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
             alert.addAction(okBtn)

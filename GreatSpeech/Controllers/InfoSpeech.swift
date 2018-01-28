@@ -13,9 +13,12 @@ class InfoSpeech: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableView = UITableView()
     let cellIdentifier = "cell"
-    var fillers: [String : Int]?
-    var words: [String]?
-    var word: String?
+    var fillers = [String : Int]()
+    var words = [String]()
+    var gradientLayer: CAGradientLayer!
+
+    var fillerNO: Int = 0
+    var wordNO: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +32,8 @@ class InfoSpeech: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         setupView()
         setupConstraints()
+        createGradientLayer()
         
-        print(word ?? "")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,7 +41,6 @@ class InfoSpeech: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: cellIdentifier)
         
         if indexPath.row == 0 {
@@ -51,11 +53,10 @@ class InfoSpeech: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = "Все слова"
             var count = 0
             
-            if let words = words{
-                if words.count > 0 {
-                    count = words.count
-                }
+            if wordNO > 0 {
+                count = wordNO
             }
+            
             cell.detailTextLabel?.text = "\(count)"
             cell.accessoryType = .disclosureIndicator
             
@@ -64,10 +65,8 @@ class InfoSpeech: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = "Паразиты"
             var count = 0
             
-            if let fillers = fillers {
-                if fillers.count > 0 {
-                    count = fillers.count
-                }
+            if fillerNO > 0 {
+                count = fillerNO
             }
             
             cell.detailTextLabel?.text = "\(count)"
@@ -82,6 +81,18 @@ class InfoSpeech: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func createGradientLayer() {
+        gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor(red: 73.0/255.0, green: 187.0/255.0, blue: 158.0/255.0, alpha: 1.0).cgColor,
+                                UIColor(red: 31.0/255.0, green: 105.0/255.0, blue: 74.0/255.0, alpha: 1.0).cgColor]
+        gradientLayer.locations = [0, 1]
+        let thisView = UIView(frame: tableView.frame)
+        thisView.layer.addSublayer(gradientLayer)
+        self.tableView.backgroundView = thisView
+    }
+    
 }
 extension InfoSpeech {
     func setupView() {
