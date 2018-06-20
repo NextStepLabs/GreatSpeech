@@ -40,14 +40,13 @@ class AnalyzingFillerVC: UIViewController, UITableViewDelegate, UITableViewDataS
                         self.allText.append(obj.value)
                     }
                     
-                    
-                    
                     let words = self.allText.components(separatedBy: CharacterSet.alphanumerics.inverted).filter{ return ($0 != "" && $0.count != 1) }
                     words.forEach { self.counts[$0, default: 0] += 1 }
                     let finalCounts = self.counts.sorted{ $0.value > $1.value }
                     print("Counts ",finalCounts )
+                    let sentence = words.count / 5
                         finalCounts.forEach{
-                            if (words.count/50 < $0.value && self.fillers.contains($0.key)){
+                            if (((sentence / 2) < $0.value && self.fillers.contains($0.key)) || sentence / 6 < $0.value){
                                 self.badWords[$0.key] = $0.value
                                 self.tableView.reloadData()
                             }
@@ -56,10 +55,6 @@ class AnalyzingFillerVC: UIViewController, UITableViewDelegate, UITableViewDataS
                         return
                     
                     print("bad word \(self.badWords)")
-                    
-                    
-                    
-                    
                     
                     
                 }

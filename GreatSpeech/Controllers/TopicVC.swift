@@ -19,7 +19,6 @@ class TopicVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //MARK: call functions
         setupViews()
         setupingConstraints()

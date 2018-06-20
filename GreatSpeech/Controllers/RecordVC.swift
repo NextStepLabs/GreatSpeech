@@ -151,8 +151,7 @@ extension RecordVC {
             print("Counts ",finalCounts )
             var badWords : [String: Int] = [ : ]
             finalCounts.forEach{
-                if (words.count/5 < $0.value && self.fillers.contains($0.key)){
-//                    print("\($0.key)  \($0.value)")
+                if (((words.count / 5) / 2) < $0.value && self.fillers.contains($0.key)){
                     badWords[$0.key] = $0.value
                 }
             }
